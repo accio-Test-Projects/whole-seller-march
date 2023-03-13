@@ -6,6 +6,20 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import AdminLogin from '../components/Admin/Auth'
+import AdminLandingPage from '../components/Admin/AdminLandingPage'
+import AdminDashboard from '../components/Admin/AdminDashboard'
+import CMSOrders from '../components/Admin/CMSOrders'
+import CMSProducts from '../components/Admin//CMSProduct'
+
+import Auth from '../components/user/Auth'
+import LandingPage from '../components/user/LandingPage'
+import Category from '../components/user/Category'
+import Product from '../components/user/PDP'
+import Cart from '../components/user/Cart'
+import Checkout from '../components/user/Checkout'
+import Orders from '../components/user/Orders'
+
 function Navs() {
   const RouteProtection = ({type}) => {
     if (type === "user") {
@@ -34,29 +48,31 @@ function Navs() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<h1>landingpage</h1>} />
-        <Route path="/admin/login" element={<h1>admin login</h1>} />
+        <Route path="/" element={
+        <LandingPage />
+        } />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route element={<RouteProtection type={'admin'} />}>
-          <Route path="admin/dashboard" element={<h1>dashboard</h1>} />
+          <Route path="admin/dashboard" element={<AdminDashboard />} />
           <Route
             path="admin/landingpage"
-            element={<h1>landingpage admin</h1>}
+            element={<AdminLandingPage />}
           />
-          <Route path="admin/products" element={<h1>products</h1>} />
-          <Route path="admin/orders" element={<h1>orders</h1>} />
+          <Route path="admin/products" element={<CMSProducts />} />
+          <Route path="admin/orders" element={<CMSOrders />} />
         </Route>
 
-        <Route path="/auth" element={<h2>user auth</h2>} />
+        <Route path="/auth" element={<Auth />} />
 
-        <Route path="/category/:catId" element={<h2>category </h2>} />
-        <Route path="/product/:productId" element={<h2>product</h2>} />
+        <Route path="/category/:catId" element={<Category />} />
+        <Route path="/product/:productId" element={<Product />} />
 
-        <Route path="/cart" element={<h2>cart</h2>} />
+        <Route path="/cart" element={<Cart />} />
 
         <Route element={<RouteProtection type={'user'} />}>
-        <Route path="/checkout" element={<h2>checkout</h2>} />
-        <Route path="/orders" element={<h2>orders</h2>} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orders" element={<Orders />} />
         </Route>
       </Routes>
     </BrowserRouter>
