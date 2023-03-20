@@ -1,0 +1,25 @@
+.column{
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  max-width: 95%;
+  margin: 20px auto;
+  border: 1px solid #00000021;
+  border-radius: 20px;
+}
+.edit{
+  border: navajowhite;
+  background: #3367e2;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+.delete{
+  border: navajowhite;
+  background: #e23344;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 14px;
+  cursor: pointer;
+}
